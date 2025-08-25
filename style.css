@@ -1,86 +1,86 @@
-css
-/* Общие стили */
 body {
-    font-family: 'Spectral', serif; /* Элегантный шрифт с засечками */
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: #000000; /* Черный фон */
+    color: #fff; /* Белый текст */
+    line-height: 1.6;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom, #222, #555); /* Темный градиент */
-    color: #eee; /* Светло-серый текст */
-    overflow-x: hidden; /* Скрываем горизонтальную полосу прокрутки */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Занимает всю высоту экрана */
 }
 
-h1 {
-    color: #d4af37; /* Золотой цвет для заголовка */
+/* Общее оформление */
+.container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 30px;
+    background-color: #111; /* Очень темный серый для контейнера */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Мягкая тень */
+    border-radius: 8px;
+}
+
+h1, h2, h3 {
+    color: #fff; /* Белые заголовки */
+    font-weight: 300; /* Тонкий шрифт */
+    margin-bottom: 20px;
     text-align: center;
-    margin-bottom: 30px;
-    text-shadow: 0 0 5px #d4af37; /* Мягкое золотое свечение */
-    font-size: 2.5em; /* Увеличиваем размер заголовка */
+    letter-spacing: 0.05em; /* Небольшие пробелы между буквами */
 }
 
-/* Контейнер для топстеров */
+p {
+    margin-bottom: 20px;
+    font-size: 1.1em;
+    color: #eee; /* Светло-серый текст */
+}
+
+/* Оформление ссылок */
+a {
+    color: #87ceeb; /* Светло-голубой */
+    text-decoration: none;
+    transition: color 0.3s ease; /* Плавный переход цвета */
+}
+
+a:hover {
+    color: #fff; /* Белый цвет при наведении */
+}
+
+/* Стили для топстеров */
 .topster-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 30px;
+    margin-top: 30px;
 }
 
-/* Карточка топстера */
-.topster {
-    width: 300px;
-    margin: 20px;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.2); /* Полупрозрачный черный фон */
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Тонкая белая рамка */
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Более темная тень */
-    transition: transform 0.3s ease-in-out; /* Плавная анимация */
+.topster-image {
+    width: 250px;
+    height: auto;
+    margin: 15px;
+    border: 1px solid #333;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4); /* Тень побольше */
+    transition: transform 0.3s ease; /* Плавное увеличение при наведении */
 }
 
-.topster:hover {
+.topster-image:hover {
     transform: scale(1.05); /* Небольшое увеличение при наведении */
 }
 
-/* Изображение топстера */
-.topster img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Тень для изображения */
+/* Футер */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #222; /* Темно-серый футер */
+    color: #888;
+    margin-top: auto; /* Прижимаем к низу */
 }
 
-/* Автор топстера */
-.topster p {
-    margin-top: 15px;
-    font-size: 1.1em;
-    color: #ccc;
-    text-shadow: 0 0 3px #999; /* Мягкое свечение для текста автора */
+/* Анимация */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* Дополнительные эффекты (туман на фоне) */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAIElEQVQ4T2NkwAIYGYQRAQAAwAAB9AyWYMwAAAAASUVORK5CYII='); /* Текстура тумана */
-    opacity: 0.3;
-    z-index: -1;
-    animation: moveFog 60s linear infinite; /* Анимация движения тумана */
+body, h1, h2, h3, p, a, .topster-container {
+    animation: fadeIn 1s ease-out forwards;
 }
-
-@keyframes moveFog {
-    0% { background-position: 0 0; }
-    100% { background-position: 100% 100%; }
-}
-```
-
-**Что изменилось:**
-
-*   **Шрифт:** `Spectral` — более изысканный шрифт с засечками, создающий ощущение старины и волшебства. Необходимо подключить через Google Fonts:
-
-    ```html
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;700&display=swap">
