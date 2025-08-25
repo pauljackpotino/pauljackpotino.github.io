@@ -25,5 +25,69 @@
               <p>Автор: Твоя MAMKA</p>
             </div>
           </div>
-        </body>
+        <script>
+    // Замените YOUR_GOOGLE_SHEET_URL на ссылку, которую вы скопировали из Google Sheets
+    const googleSheetUrl = https://docs.google.com/spreadsheets/d/e/2PACX-1vRyrnf7k3IVi9ewZp34R4L9Bu-uV-o7B-d914dPddE0o5w3031BGNXqz2SKNXk3oJSjuAj76pOMxc_y/pubhtml;
+
+    async function loadTopsters() {
+        try {
+            const response = await fetch(googleSheetUrl);
+            const html = await response.text();
+
+            // Парсим HTML-код Google Sheets
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, "text/html");
+
+            // Находим таблицу с данными
+            const table = doc.querySelector("table");
+
+            // Если таблица найдена
+            if (table) {
+                const tbody = table.querySelector("tbody");
+                const rows = tbody.querySelectorAll("tr");
+
+                // Получаем контейнер для топстеров
+                const topsterContainer = document.querySelector(".topster-container");
+
+                // Перебираем строки таблицы (начиная со второй строки, чтобы пропустить заголовки)
+                for (let i = 1; i < rows.length; i++) {
+                    const row = rows[i];
+                    const cells = row.querySelectorAll("td");
+
+                    // Убедитесь, что в строке есть как минимум 2 ячейки (имя и ссылка на изображение)
+                    if (cells.length >= 2) {
+                        const name = cells[0].textContent;
+                        const imageUrl = cells[1].textContent;
+
+                        // Создаем элементы для топстера
+                        const topsterDiv = document.createElement("div");
+                        topsterDiv.classList.add("topster");
+
+                        const img = document.createElement("img");
+                        img.src = imageUrl;
+                        img.alt = `Топстер пользователя ${name}`;
+
+                        const nameParagraph = document.createElement("p");
+                        nameParagraph.textContent = `Автор: ${name}`;
+
+                        // Добавляем элементы в контейнер топстера
+                        topsterDiv.appendChild(img);
+                        topsterDiv.appendChild(nameParagraph);
+
+                        // Добавляем контейнер топстера в основной контейнер
+                        topsterContainer.appendChild(topsterDiv);
+                    }
+                }
+            } else {
+                console.error("Table not found in Google Sheet");
+            }
+        } catch (error) {
+            console.error("Error loading data from Google Sheets:", error);
+        }
+    }
+
+    // Загружаем топстеры при загрузке страницы
+    window.addEventListener("load", loadTopsters);
+</script>
+	</body>
         </html>
