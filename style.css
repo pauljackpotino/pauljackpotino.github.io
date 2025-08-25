@@ -61,26 +61,20 @@ a:hover {
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавные переходы */
 }
 
-/* Анимация увеличения и тени при наведении */
+/* Анимация при наведении */
 .topster-image:hover {
     transform: scale(1.1);
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+    animation: shake 0.5s ease-in-out forwards; /* Запускаем анимацию shake */
 }
 
-/* Анимация "пульсации" */
-.topster-image {
-    animation: pulse 2s infinite alternate; /* Бесконечная анимация */
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-        opacity: 0.8;
-    }
-    100% {
-        transform: scale(1.05);
-        opacity: 1;
-    }
+/* Анимация "тряски" */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
 }
 
 footer {
@@ -88,5 +82,5 @@ footer {
     padding: 20px;
     background-color: #222;
     color: #888;
-    margin-top:auto;
+    margin-top: auto;
 }
