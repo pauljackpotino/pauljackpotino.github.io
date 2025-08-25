@@ -1,81 +1,86 @@
+css
 /* Общие стили */
 body {
-  font-family: 'Roboto', sans-serif; /* Современный и читаемый шрифт */
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(to bottom, #000428, #004e92); /* Глубокий градиент, как космос */
-  color: #fff; /* Белый текст для контраста */
-  overflow-x: hidden; /* Скрываем горизонтальную полосу прокрутки */
+    font-family: 'Spectral', serif; /* Элегантный шрифт с засечками */
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #222, #555); /* Темный градиент */
+    color: #eee; /* Светло-серый текст */
+    overflow-x: hidden; /* Скрываем горизонтальную полосу прокрутки */
 }
 
 h1 {
-  color: #fff;
-  text-align: center;
-  margin-bottom: 30px;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Мягкое свечение */
-  font-size: 2.5em; /* Увеличиваем размер заголовка */
-  letter-spacing: 0.1em; /* Расстояние между буквами для большего эффекта */
+    color: #d4af37; /* Золотой цвет для заголовка */
+    text-align: center;
+    margin-bottom: 30px;
+    text-shadow: 0 0 5px #d4af37; /* Мягкое золотое свечение */
+    font-size: 2.5em; /* Увеличиваем размер заголовка */
 }
 
 /* Контейнер для топстеров */
 .topster-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 30px;
-  perspective: 800px; /* Добавляем перспективу для 3D-эффектов */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 30px;
 }
 
 /* Карточка топстера */
 .topster {
-  width: 300px;
-  margin: 20px;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.05); /* Полупрозрачный белый фон */
-  border: 1px solid rgba(255, 255, 255, 0.1); /* Тонкая белая рамка */
-  border-radius: 10px;
-  text-align: center;
-  transition: transform 0.5s, box-shadow 0.5s; /* Плавные переходы */
-  transform-style: preserve-3d; /* Важно для 3D-трансформаций */
+    width: 300px;
+    margin: 20px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.2); /* Полупрозрачный черный фон */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Тонкая белая рамка */
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Более темная тень */
+    transition: transform 0.3s ease-in-out; /* Плавная анимация */
 }
 
 .topster:hover {
-  transform: rotateY(10deg) scale(1.05); /* Небольшой поворот и увеличение при наведении */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Более выразительная тень */
+    transform: scale(1.05); /* Небольшое увеличение при наведении */
 }
 
 /* Изображение топстера */
 .topster img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 5px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Тень для изображения */
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Тень для изображения */
 }
 
 /* Автор топстера */
 .topster p {
-  margin-top: 15px;
-  font-size: 1.1em;
-  color: #eee;
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.2); /* Мягкое свечение для текста автора */
+    margin-top: 15px;
+    font-size: 1.1em;
+    color: #ccc;
+    text-shadow: 0 0 3px #999; /* Мягкое свечение для текста автора */
 }
 
-/* Дополнительные эффекты (звезды на фоне) */
+/* Дополнительные эффекты (туман на фоне) */
 body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"><circle cx="5" cy="5" r="1" fill="%23ffffff" /></svg>'); /* Маленькие белые точки */
-  opacity: 0.5;
-  z-index: -1; /* Помещаем звезды под контент */
-  animation: twinkling 5s linear infinite; /* Анимация мерцания */
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAIElEQVQ4T2NkwAIYGYQRAQAAwAAB9AyWYMwAAAAASUVORK5CYII='); /* Текстура тумана */
+    opacity: 0.3;
+    z-index: -1;
+    animation: moveFog 60s linear infinite; /* Анимация движения тумана */
 }
 
-@keyframes twinkling {
-  0% { opacity: 0.5; }
-  50% { opacity: 0.2; }
-  100% { opacity: 0.5; }
+@keyframes moveFog {
+    0% { background-position: 0 0; }
+    100% { background-position: 100% 100%; }
 }
+```
+
+**Что изменилось:**
+
+*   **Шрифт:** `Spectral` — более изысканный шрифт с засечками, создающий ощущение старины и волшебства. Необходимо подключить через Google Fonts:
+
+    ```html
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;700&display=swap">
