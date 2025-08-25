@@ -1,7 +1,7 @@
 body {
     font-family: monospace; /* Шрифт как в Windows XP */
-    background-color: #000;
-    color: #fff;
+    background-color: #000; /* Черный фон */
+    color: #ddd; /* Светло-серый текст */
     line-height: 1.4;
     margin: 0;
     padding: 0;
@@ -14,35 +14,19 @@ body {
     max-width: 800px;
     margin: 30px auto;
     padding: 30px;
-    background-color: #111;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); /* Белая тень для контраста */
+    background-color: #222; /* Темно-серый контейнер */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Мягкая тень */
     border-radius: 0; /* Без закруглений */
 }
 
 h1 {
-    font-family: monospace; /* Шрифт как в Windows XP */
+    font-family: monospace;
     color: #fff;
     font-size: 2em;
     text-align: center;
     margin-bottom: 20px;
     letter-spacing: 0.1em;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Тень для текста */
-}
-
-p {
-    color: #ddd;
-    font-size: 1em;
-    margin-bottom: 15px;
-}
-
-a {
-    color: #add8e6; /* Светло-синий */
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-a:hover {
-    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Более выраженная тень */
 }
 
 .topster-container {
@@ -52,24 +36,50 @@ a:hover {
     margin-top: 20px;
 }
 
-.topster-image {
+.topster {
     width: 200px;
-    height: auto;
     margin: 10px;
-    border: 1px solid #333;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.topster-image {
+    width: 100%; /* Занимает всю ширину контейнера */
+    height: auto;
+    border: 1px solid #333; /* Темная граница */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6); /* Более темная тень */
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавные переходы */
 }
 
-.topster-image:hover { /* Оставляем стили для hover, но убираем анимацию */
-    transform: scale(1.1);
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+.topster-image:hover {
+    transform: scale(1.1); /* Увеличение при наведении */
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8); /* Более выраженная тень при наведении */
+}
+
+.topster p {
+    font-size: 0.9em;
+    margin-top: 5px;
+    color: #aaa; /* Еще более светлый серый */
 }
 
 footer {
     text-align: center;
     padding: 20px;
-    background-color: #222;
+    background-color: #333; /* Темно-серый футер */
     color: #888;
     margin-top: auto;
 }
+
+/* Анимация "мерцания" для иконок (необязательно, но добавляет атмосферности) */
+.topster-image {
+    animation: flicker 3s linear infinite;
+}
+
+@keyframes flicker {
+    0% { opacity: 0.7; }
+    20% { opacity: 0.9; }
+    40% { opacity: 0.5; }
+    60% { opacity: 0.8; }
+    80% { opacity: 0.6; }
+    100% { opacity: 0.7; }
+}
+ 
