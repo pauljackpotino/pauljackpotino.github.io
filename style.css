@@ -1,86 +1,74 @@
 body {
-    font-family: 'Helvetica Neue', sans-serif;
-    background-color: #000000; /* Черный фон */
-    color: #fff; /* Белый текст */
-    line-height: 1.6;
+    font-family: monospace; /* Шрифт как в Windows XP */
+    background-color: #000;
+    color: #fff;
+    line-height: 1.4;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Занимает всю высоту экрана */
+    min-height: 100vh;
 }
 
-/* Общее оформление */
 .container {
     max-width: 800px;
     margin: 30px auto;
     padding: 30px;
-    background-color: #111; /* Очень темный серый для контейнера */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Мягкая тень */
-    border-radius: 8px;
+    background-color: #111;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); /* Белая тень для контраста */
+    border-radius: 0; /* Без закруглений */
 }
 
-h1, h2, h3 {
-    color: #fff; /* Белые заголовки */
-    font-weight: 300; /* Тонкий шрифт */
-    margin-bottom: 20px;
+h1 {
+    font-family: monospace; /* Шрифт как в Windows XP */
+    color: #fff;
+    font-size: 2em;
     text-align: center;
-    letter-spacing: 0.05em; /* Небольшие пробелы между буквами */
+    margin-bottom: 20px;
+    letter-spacing: 0.1em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Тень для текста */
 }
 
 p {
-    margin-bottom: 20px;
-    font-size: 1.1em;
-    color: #eee; /* Светло-серый текст */
+    color: #ddd;
+    font-size: 1em;
+    margin-bottom: 15px;
 }
 
-/* Оформление ссылок */
 a {
-    color: #87ceeb; /* Светло-голубой */
+    color: #add8e6; /* Светло-синий */
     text-decoration: none;
-    transition: color 0.3s ease; /* Плавный переход цвета */
+    transition: color 0.3s ease;
 }
 
 a:hover {
-    color: #fff; /* Белый цвет при наведении */
+    color: #fff;
 }
 
-/* Стили для топстеров */
 .topster-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 .topster-image {
-    width: 250px;
+    width: 200px;
     height: auto;
-    margin: 15px;
+    margin: 10px;
     border: 1px solid #333;
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4); /* Тень побольше */
-    transition: transform 0.3s ease; /* Плавное увеличение при наведении */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
 }
 
 .topster-image:hover {
-    transform: scale(1.05); /* Небольшое увеличение при наведении */
+    transform: scale(1.1);
 }
 
-/* Футер */
 footer {
     text-align: center;
     padding: 20px;
-    background-color: #222; /* Темно-серый футер */
+    background-color: #222;
     color: #888;
-    margin-top: auto; /* Прижимаем к низу */
-}
-
-/* Анимация */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-body, h1, h2, h3, p, a, .topster-container {
-    animation: fadeIn 1s ease-out forwards;
+    margin-top: auto;
 }
