@@ -61,20 +61,9 @@ a:hover {
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавные переходы */
 }
 
-/* Анимация при наведении */
-.topster-image:hover {
+.topster-image:hover { /* Оставляем стили для hover, но убираем анимацию */
     transform: scale(1.1);
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
-    animation: shake 0.5s ease-in-out forwards; /* Запускаем анимацию shake */
-}
-
-/* Анимация "тряски" */
-@keyframes shake {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-5px); }
-    50% { transform: translateX(5px); }
-    75% { transform: translateX(-5px); }
-    100% { transform: translateX(0); }
 }
 
 footer {
